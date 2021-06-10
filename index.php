@@ -28,7 +28,26 @@ $user_name = ''; // укажите здесь ваше имя
 
         <nav class="user-menu">
 
-        <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
+                <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
+        <?php if($is_auth == true): ?>
+            <div class="user-menu__logged">
+                <p><?= $user_name; ?></p>
+                <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
+                <a class="user-menu__logout" href="#">Выход</a>
+            </div>
+        <?php endif; ?>
+
+        <?php if($is_auth == false): ?>
+            <ul class="user-menu__list">
+            <li class="user-menu__item">
+                <a href="#">Регистрация</a>
+            </li>
+            <li class="user-menu__item">
+                <a href="#">Вход</a>
+            </li>
+            </ul>
+        <?php endif; ?>
+        <!-- /здесь должен быть PHP код для показа меню и данных пользователя -->
 
         </nav>
     </div>
