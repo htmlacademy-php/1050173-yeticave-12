@@ -83,7 +83,7 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
             [
                 ['title' => '2014 Rossignol District Snowboard',
                  'category' => 'Доски и лыжи',
-                 'price' => '10999',
+                 'price' => '10996',
                  'URL' => 'img/lot-1.jpg'
                 ],
 
@@ -118,10 +118,59 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
                ],    
             ];?>
 
+
+
+                <!-- ------------------Цикл по разделению цены----------------- -->
+                            <?php function separate_price($arg) 
+                            {
+                                $round_price = ceil($arg); //Округление
+                                $str = (string) $round_price; //Перевод в строку
+
+                                $lenght_str = strlen($str); //Длина строки  
+                                $rub = "<b class=rub>"."</b>";                              
+                                
+                               switch($lenght_str) {
+
+                                    case 4:
+                                    $end = substr($str, -3);
+                                    $start = substr($str, 0, 1);
+                                    $all = $start ." ". $end;
+                                    return $all . $rub;
+                                    break;
+
+                                   case 5:
+                                    $end = substr($str, -3);
+                                    $start = substr($str, 0, 2);
+                                    $all = $start ." ". $end;
+                                    return $all . $rub;
+                                    break;
+
+                                    case 6:
+                                    $end = substr($str, -3);
+                                    $start = substr($str, 0, 3);
+                                    $all = $start ." ". $end;
+                                    return $all . $rub;
+                                    break;
+
+                                    case 7:
+                                    $end = substr($str, -3);
+                                    $start = substr($str, 1, 3);
+                                    $million1 = substr($str, 0, 1);
+                                    $all = $million1 . " " . $start ." ". $end;
+                                    return $all . $rub;
+                                    break;
+                               }
+
+
+                            } ?> 
+                <!-- ------------------/Цикл по разделению цены----------------- -->
+
             <?php foreach ($announcement as $key => $value): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
+                    
                     <img src="  <?=$value['URL']?>  " width="350" height="260" alt="">
+                     
                 </div>
                 <div class="lot__info">
                     <span class="lot__category">  <?=$value['category']?>  </span>
@@ -129,7 +178,11 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">  <?=$value['price']?>  <b class="rub">р</b></span>
+                            
+                            <!-- ------------------Цикл по разделению цены----------------- -->
+                            <span class="lot__cost">  <?=separate_price($value['price']) ?>   </span>
+                            <!-- ------------------/Цикл по разделению цены----------------- -->
+
                         </div>
                         <div class="lot__timer timer">
                             12:23
@@ -212,3 +265,18 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
 <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
