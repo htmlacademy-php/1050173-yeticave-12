@@ -30,16 +30,17 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
 
         <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
 
-            <?php if($is_auth == true): ?>
-        <div class="user-menu__logged">
-            <p><?= $user_name; ?></p>
+        <?php if($is_auth === 1): ?>
+            <div class="user-menu__logged">
+                <p><?= $user_name; ?></p>
                 <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
-            <a class="user-menu__logout" href="#">Выход</a>
-        </div>
-        <?php endif; ?>
+                <a class="user-menu__logout" href="#">Выход</a>
+            </div>
+        
 
-        <?php if($is_auth == false): ?>
-        <ul class="user-menu__list">
+        <?php else: ?>
+            <ul class="user-menu__list">
+
             <li class="user-menu__item">
                 <a href="#">Регистрация</a>
             </li>
@@ -81,41 +82,42 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
             <!--заполните этот список из массива с товарами-->
             <?php $announcement = 
             [
-                ['title' => '2014 Rossignol District Snowboard',
-                 'category' => 'Доски и лыжи',
-                 'price' => '10996',
-                 'URL' => 'img/lot-1.jpg'
+                [
+                    'title' => '2014 Rossignol District Snowboard',
+                    'category' => 'Доски и лыжи',
+                    'price' => '10996',
+                    'URL' => 'img/lot-1.jpg'
                 ],
-
-                ['title' => 'DC Ply Mens 2016/2017 Snowboard',
-                 'category' => 'Доски и лыжи',
-                 'price' => '159999',
-                 'URL' => 'img/lot-2.jpg'
+                [
+                    'title' => 'DC Ply Mens 2016/2017 Snowboard',
+                    'category' => 'Доски и лыжи',
+                    'price' => '159999',
+                    'URL' => 'img/lot-2.jpg'
                 ],
-
-                ['title' => 'Крепления Union Contact Pro 2015 года размер L/XL',
-                 'category' => 'Крепления',
-                 'price' => '8000',
-                 'URL' => 'img/lot-3.jpg'
+                [
+                    'title' => 'Крепления Union Contact Pro 2015 года размер L/XL',
+                    'category' => 'Крепления',
+                    'price' => '8000',
+                    'URL' => 'img/lot-3.jpg'
                 ],
- 
-               ['title' => 'Ботинки для сноуборда DC Mutiny Charocal',
-                'category' => 'Ботинки',
-                'price' => '10999',
-                'URL' => 'img/lot-4.jpg'
-               ],
-
-               ['title' => 'Куртка для сноуборда DC Mutiny Charocal',
-               'category' => 'Одежда',
-               'price' => '7500',
-               'URL' => 'img/lot-5.jpg'
-               ],
-
-               ['title' => 'Маска Oakley Canopy',
-                'category' => 'Разное',
-                'price' => '5400',
-                'URL' => 'img/lot-6.jpg'
-               ],    
+                [
+                    'title' => 'Ботинки для сноуборда DC Mutiny Charocal',
+                    'category' => 'Ботинки',
+                    'price' => '10999',
+                    'URL' => 'img/lot-4.jpg'
+                ],
+                [
+                    'title' => 'Куртка для сноуборда DC Mutiny Charocal',
+                    'category' => 'Одежда',
+                    'price' => '7500',
+                    'URL' => 'img/lot-5.jpg'
+                ],
+                [
+                    'title' => 'Маска Oakley Canopy',
+                    'category' => 'Разное',
+                    'price' => '5400',
+                    'URL' => 'img/lot-6.jpg'
+                ],    
             ];?>
 
 
