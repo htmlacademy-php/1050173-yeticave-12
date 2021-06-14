@@ -37,7 +37,7 @@ $user_name = ''; // укажите здесь ваше имя
             </div>
         <?php endif; ?>
 
-        <?php if($is_auth == false): ?>
+        <?php else: ?>
             <ul class="user-menu__list">
             <li class="user-menu__item">
                 <a href="#">Регистрация</a>
