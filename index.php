@@ -120,50 +120,20 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
                 ],    
             ];?>
 
+
                             <!-- ------------------Цикл по разделению цены----------------- -->
-                            <?php function separate_price($arg) 
+                            <?php function separate_price($arg)
                             {
-                                $round_price = ceil($arg); //Округление
-                                $str = (string) $round_price; //Перевод в строку
+                            $round_price = ceil($arg); 
 
-                                $lenght_str = strlen($str); //Длина строки  
-                                $rub = "<b class=rub>"."</b>";                              
+                            if($round_price >= 1000) {
+                                $separate = number_format($round_price, 0, "", " ");
+                                return $separate ."<b class=rub>"."</b>";
+                            } else {
+                                return $round_price ."<b class=rub>"."</b>";}
+                            } ?>
+                            <!-- ------------------/Цикл по разделению цены----------------- -->
 
-                               switch($lenght_str) {
-
-                                    case 4:
-                                    $end = substr($str, -3);
-                                    $start = substr($str, 0, 1);
-                                    $all = $start ." ". $end;
-                                    return $all . $rub;
-                                    break;
-
-                                   case 5:
-                                    $end = substr($str, -3);
-                                    $start = substr($str, 0, 2);
-                                    $all = $start ." ". $end;
-                                    return $all . $rub;
-                                    break;
-
-                                    case 6:
-                                    $end = substr($str, -3);
-                                    $start = substr($str, 0, 3);
-                                    $all = $start ." ". $end;
-                                    return $all . $rub;
-                                    break;
-
-                                    case 7:
-                                    $end = substr($str, -3);
-                                    $start = substr($str, 1, 3);
-                                    $million1 = substr($str, 0, 1);
-                                    $all = $million1 . " " . $start ." ". $end;
-                                    return $all . $rub;
-                                    break;
-                               }
-
-
-                            } ?> 
-                <!-- ------------------/Цикл по разделению цены----------------- -->
 
             <?php foreach ($announcement as $key => $value): ?>
             <li class="lots__item lot">
