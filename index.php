@@ -122,16 +122,12 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
 
 
                             <!-- ------------------Цикл по разделению цены----------------- -->
-                            <?php function separate_price($arg)
-                            {
+                            <?php function separate_price($arg) {
                             $round_price = ceil($arg); 
-
-                            if($round_price >= 1000) {
-                                $separate = number_format($round_price, 0, "", " ");
-                                return $separate ."<b class=rub>"."</b>";
-                            } else {
-                                return $round_price ."<b class=rub>"."</b>";}
-                            } ?>
+                            
+                            $separate = number_format($round_price, 0, "", " ");
+                            return $separate ."<b class=rub>"."</b>";}
+                             ?>
                             <!-- ------------------/Цикл по разделению цены----------------- -->
 
 
