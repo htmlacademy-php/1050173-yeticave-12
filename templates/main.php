@@ -1,26 +1,25 @@
 <section class="promo">
-        <h2 class="promo__title">Нужен стафф для катки?</h2>
-        <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
-        <ul class="promo__list">
-
+    <h2 class="promo__title">Нужен стафф для катки?</h2>
+    <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
+    <ul class="promo__list">
         <!--заполните этот список из массива категорий-->
-            <?php foreach ($category as $value): ?>
+        <?php foreach ($category as $value): ?>
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html"><?= htmlspecialchars($value) ?></a>
             </li>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         <!--/заполните этот список из массива категорий-->
+    </ul>
+</section>
 
-        </ul>
-    </section>
-    <section class="lots">
-        <div class="lots__header">
-            <h2>Открытые лоты</h2>
-        </div>
+<section class="lots">
+    <div class="lots__header">
+        <h2>Открытые лоты</h2>
+    </div>
 
-        <ul class="lots__list">    
-    <!--заполните этот список из массива с товарами-->
-            <?php foreach ($announcement as $key => $value): ?>
+    <ul class="lots__list">    
+        <!--заполните этот список из массива с товарами-->
+        <?php foreach ($announcement as $key => $value): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="  <?= htmlspecialchars($value['URL']) ?>  " width="350" height="260" alt="">
@@ -46,7 +45,7 @@
                     </div>
                 </div>
             </li>
-            <?php endforeach; ?>
-    <!--/заполните этот список из массива с товарами-->
-        </ul>
-    </section>
+        <?php endforeach; ?>
+        <!--/заполните этот список из массива с товарами-->
+    </ul>
+</section>
