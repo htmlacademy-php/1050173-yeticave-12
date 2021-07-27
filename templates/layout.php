@@ -1,8 +1,8 @@
 <?php
 $is_auth = rand(0, 1);
-
 $user_name = 'Аркадий'; // укажите здесь ваше имя
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -10,8 +10,8 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
     <title><?=$title?></title>
     <link href="../css/normalize.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-    
 </head>
+
 <body>
 <div class="page-wrapper">
 
@@ -28,30 +28,24 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
-
-
-                <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
-        <?php if($is_auth === 1): ?>
-            <div class="user-menu__logged">
-                <p><?= $user_name; ?></p>
-                <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
-                <a class="user-menu__logout" href="#">Выход</a>
-            </div>
-        
-
-        <?php else: ?>
-            <ul class="user-menu__list">
-
-            <li class="user-menu__item">
-                <a href="#">Регистрация</a>
-            </li>
-            <li class="user-menu__item">
-                <a href="#">Вход</a>
-            </li>
-        </ul>
-        <?php endif; ?>
-        <!-- /здесь должен быть PHP код для показа меню и данных пользователя -->
-
+            <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
+            <?php if($is_auth === 1): ?>
+                <div class="user-menu__logged">
+                    <p><?= $user_name; ?></p>
+                    <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
+                    <a class="user-menu__logout" href="#">Выход</a>
+                </div>       
+            <?php else: ?>
+                <ul class="user-menu__list">
+                    <li class="user-menu__item">
+                        <a href="#">Регистрация</a>
+                    </li>
+                    <li class="user-menu__item">
+                        <a href="#">Вход</a>
+                    </li>
+                </ul>
+            <?php endif; ?>
+            <!-- /здесь должен быть PHP код для показа меню и данных пользователя -->
         </nav>
     </div>
 </header>
@@ -61,26 +55,18 @@ $user_name = 'Аркадий'; // укажите здесь ваше имя
 </main>
 </div>
 
-
-
 <footer class="main-footer">
-
     <nav class="nav">
         <ul class="nav__list container">
-
             <!--заполните этот список из массива категорий-->
             <?php foreach ($category as $value): ?>
-             <li class="nav__item">
-                <a href="pages/all-lots.html"><?=$value?></a>
-            </li>
+                <li class="nav__item">
+                    <a href="pages/all-lots.html"><?=$value?></a>
+                </li>
             <?php endforeach; ?>
             <!--/заполните этот список из массива категорий-->
-
         </ul>
     </nav>
-
-
-
     <div class="main-footer__bottom container">
         <div class="main-footer__copyright">
             <p>© 2019, YetiCave</p>

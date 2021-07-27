@@ -1,11 +1,8 @@
-
-
 <?php 
-    require('helpers.php');
+    require_once('helpers.php');
 
-     $cat = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
+     $category = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
      
-
      $announcement = 
      [
          [
@@ -52,12 +49,7 @@
          ],    
      ];
 
-    $main_page = include_template('main.php' , ['category' => $cat, 'announcement' => $announcement]); 
+    $main_page = include_template('main.php' , ['category' => $category, 'announcement' => $announcement]); 
+    $layout_content = include_template('layout.php', ['content' => $main_page, 'title' => 'Главная', 'category' => $category]);
 
-    $layout_content = include_template('layout.php', ['content' => $main_page, 'title' => 'Главная', 'category' => $cat]);
-
-    echo($layout_content);
-
-?>
-
-
+    print($layout_content);
