@@ -170,7 +170,6 @@ function left_time($dte) {
     if ($minutes < 10) {
         $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
     }
-
     return compact('hours','minutes');
 }
 
