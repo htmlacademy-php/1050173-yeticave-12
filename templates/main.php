@@ -38,7 +38,7 @@
                         <!-- ------------------Подсчет оставшегося времени----------------- -->
                         <?php $left_time = left_time(htmlspecialchars($value['date'])); ?>
 
-                        <div class="lot__timer timer <?=$left_time['hours'] < 01 ?'timer--finishing' : "" ?>">
+                        <div class="lot__timer timer <?=$left_time['hours'] < 1 ?'timer--finishing' : "" ?>">
                         <?=($left_time['hours']. " : " .$left_time['minutes'])?>                           
                         </div>
                         <!-- ------------------Подсчет оставшегося времени----------------- -->
