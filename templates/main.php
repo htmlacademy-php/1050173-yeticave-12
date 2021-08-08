@@ -36,10 +36,10 @@
                         </div>
 
                         <!-- ------------------Подсчет оставшегося времени----------------- -->
-                        <?php $array = left_time(htmlspecialchars($value['date'])); ?>
+                        <?php $left_time = left_time(htmlspecialchars($value['date'])); ?>
 
-                        <div class="lot__timer timer <?=$array['hours'] < 01 ?'timer--finishing' : "" ?>">
-                            <?=($array['hours']. " : " .$array['minutes']);?>                           
+                        <div class="lot__timer timer <?=$left_time['hours'] < 01 ?'timer--finishing' : "" ?>">
+                        <?=($left_time['hours']. " : " .$left_time['minutes'])?>                           
                         </div>
                         <!-- ------------------Подсчет оставшегося времени----------------- -->
                     </div>
