@@ -135,12 +135,42 @@ function include_template($name, array $data = []) {
     }
 
     ob_start();
+    
     extract($data);
     require $name;
 
     $result = ob_get_clean();
-
     return $result;
+}
+
+function separate_price($arg) { 
+    $round_price = ceil($arg); 
+
+    if($round_price >= 1000) {
+    $separate = number_format($round_price, 0, "", " ");
+    return $separate ."<b class=rub>"."</b>";
+    }   else {
+        return $round_price ."<b class=rub>"."</b>";}
+} 
+
+function left_time($dte) {
+    date_default_timezone_set("Europ/Moscow");
+
+    $current_time = time();         //Метка времени 1
+    $target_time = strtotime($dte); //Метка времени 2
+                      
+    $difference = $target_time - $current_time; //Разница в секундах
+
+    $hours = floor($difference / 3600); // Вычисление часов
+    if ($hours < 10) {
+        $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
+    }
+    
+    $minutes = floor(($difference % 3600) / 60); // Вычисление минут
+    if ($minutes < 10) {
+        $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
+    }
+    return compact('hours','minutes');
 }
 
 
